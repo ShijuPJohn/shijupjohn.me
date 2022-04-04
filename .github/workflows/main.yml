@@ -25,6 +25,7 @@ jobs:
           ${{ runner.os }}-
     - name: Install Dependencies
       run: npm install
+      run: node --version
 
     - name: Build Docker image
       run: docker build . --tag gcr.io/${{ secrets.GCLOUD_PROJECT }}/${{ secrets.GCLOUD_APP_NAME }}
