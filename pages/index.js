@@ -3,8 +3,7 @@ import React, {useState} from 'react'
 import {createUseStyles} from "react-jss";
 import {faFacebookF, faLinkedinIn, faTwitter} from "@fortawesome/free-brands-svg-icons";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {Icon, useMediaQuery, useTheme} from "@mui/material";
-import {faXmark} from "@fortawesome/free-solid-svg-icons/faXmark";
+import {useMediaQuery, useTheme} from "@mui/material";
 import ClearIcon from '@mui/icons-material/Clear';
 
 const useStyles = createUseStyles({
@@ -75,6 +74,10 @@ const useStyles = createUseStyles({
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        boxShadow: ".4rem .4rem 2rem",
+        animationName: '$fadeIn',
+        animationDuration: '.5s',
+        animationTimingFunction: 'linear',
     },
     line: {
         width: "2rem",
@@ -140,41 +143,72 @@ const useStyles = createUseStyles({
             flexDirection: "column",
         }
     },
-    side_menu: {
+    side_menuIn: {
         width: "20rem",
         height: "100vh",
         float: "right",
-        backgroundColor: "var(--secondary-color)",
+        backgroundColor: "rgba(255, 148, 8,.7)",
         display: "flex",
         flexDirection: "column",
+        animationName: '$fadeIn',
+        animationDuration: '.5s',
+        animationTimingFunction: 'linear',
     },
+    side_menuOut: {
+        width: "20rem",
+        height: "100vh",
+        float: "right",
+        backgroundColor: "rgba(255, 148, 8,.7)",
+        display: "flex",
+        flexDirection: "column",
+        animationName: '$fadeOut',
+        animationDuration: '.5s',
+        animationTimingFunction: 'linear',
+    },
+    '@keyframes fadeIn': {
+        from: {
+            opacity: 0,
+        },
+        to: {
+            opacity: 1,
+        }
+    },
+    '@keyframes fadeOut': {
+        from: {
+            opacity: 1,
+        },
+        to: {
+            opacity: 0,
+        }
+    },
+
     close_button_layer: {
         display: "flex",
         justifyContent: "flex-end",
     },
     rest_of_menu: {
-        flexGrow:"1",
-        backgroundColor:"teal",
+        flexGrow: "1",
+        backgroundColor: "teal",
     },
     menu_close_btn: {
-        color:"white",
+        color: "white",
         fontSize: "4rem",
         margin: "2rem 3rem 0rem 0rem",
         cursor: "pointer",
     },
-    nav_ul_menu:{
-        flexGrow:"1",
-        display:"flex",
-        flexDirection:"column",
-        justifyContent:"center",
-        alignItems:"center",
-        listStyle:"none",
-        color:"white",
-        '& li':{
-            margin:"2rem",
+    nav_ul_menu: {
+        flexGrow: "1",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        listStyle: "none",
+        color: "white",
+        '& li': {
+            margin: "2rem",
         }
 
-    }
+    },
 
 
 })
@@ -183,13 +217,17 @@ function Home() {
     const theme = useTheme()
     const matches = useMediaQuery(theme.breakpoints.down("sm"));
     const [showMenu, setShowMenu] = useState(false)
+    const [animeOut, setAnimeOut] = useState(false)
     const classes = useStyles()
-    const menuTapHandler = (e) => {
-        if (showMenu) {
-            setShowMenu(false)
-        } else {
-            setShowMenu(true)
-        }
+
+    const menuOpenHandler = (e) => {
+        setShowMenu((pVal) => !pVal)
+    }
+    const menuCloseHandler = async (e) => {
+        setAnimeOut(true)
+        await new Promise(r => setTimeout(r, 500))
+        setAnimeOut(false)
+        setShowMenu((pVal) => !pVal)
     }
     return (
         <React.Fragment>
@@ -225,23 +263,23 @@ function Home() {
                         </nav>
                     </header>}
                     {matches && <div className={classes.header}>
-                        {!showMenu && <div className={classes.main_nav_hamburger} onClick={menuTapHandler}>
+                        {!showMenu && <div className={classes.main_nav_hamburger} onClick={menuOpenHandler}>
                             <div className={classes.line}/>
                             <div className={classes.line}/>
                             <div className={classes.line}/>
                         </div>}
-                        {showMenu && <div className={classes.side_menu}>
+                        {showMenu && <div className={!animeOut ? classes.side_menuIn : classes.side_menuOut}>
                             <div className={classes.close_button_layer}>
                                 <ClearIcon className={classes.menu_close_btn}
-                                      onClick={menuTapHandler} fontSize={"3rem"}/>
+                                           onClick={menuCloseHandler} fontSize={"3rem"}/>
                             </div>
-                                <ul className={classes.nav_ul_menu}>
-                                    <li><a className={classes.nav_btn} href="#">Home</a></li>
-                                    <li><a className={classes.nav_btn} href="#">About</a></li>
-                                    <li><a className={classes.nav_btn} href="#">Projects</a></li>
-                                    <li><a className={classes.nav_btn} href="#">Services</a></li>
-                                    <li><a className={classes.nav_btn} href="#">Hire me</a></li>
-                                </ul>
+                            <ul className={classes.nav_ul_menu}>
+                                <li><a className={classes.nav_btn} href="#">Home</a></li>
+                                <li><a className={classes.nav_btn} href="#">About</a></li>
+                                <li><a className={classes.nav_btn} href="#">Projects</a></li>
+                                <li><a className={classes.nav_btn} href="#">Services</a></li>
+                                <li><a className={classes.nav_btn} href="#">Hire me</a></li>
+                            </ul>
                         </div>}
                     </div>}
 
