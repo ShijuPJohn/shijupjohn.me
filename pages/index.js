@@ -51,7 +51,7 @@ const useStyles = createUseStyles({
 
     },
     header: {
-        backgroundColor: "rgba(209, 67, 100,.8)",
+        backgroundColor:"rgba(140, 140, 140,1)",
         height: 'calc(5vw + 3vh)',
         zIndex: 2,
     },
@@ -146,7 +146,7 @@ const useStyles = createUseStyles({
         width: "20rem",
         height: "100vh",
         float: "right",
-        backgroundColor: "rgba(209, 67, 100,.8)",
+        backgroundColor: "var(--secondary-color)",
         display: "flex",
         flexDirection: "column",
         animationName: '$fadeIn',
@@ -157,7 +157,7 @@ const useStyles = createUseStyles({
         width: "20rem",
         height: "100vh",
         float: "right",
-        backgroundColor: "rgba(209, 67, 100,.7)",
+        backgroundColor: "var(--secondary-color)",
         display: "flex",
         flexDirection: "column",
         animationName: '$fadeOut',
@@ -217,14 +217,14 @@ const useStyles = createUseStyles({
         alignItems: "center",
     },
     hero_box: {
-        marginTop:"-20rem",
+        marginTop: "-20rem",
         width: "80vw",
         height: "50vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
         alignItems: "center",
-        position:"relative",
+        position: "relative",
     },
     hero_image_container: {
         display: "block",
@@ -232,45 +232,61 @@ const useStyles = createUseStyles({
         boxShadow: "12px 7px 16px -4px rgba(0,0,0,0.58)",
         backgroundColor: "teal",
         fontSize: "0",
-        position:"absolute",
-        left:"20%",
-        top:"30%",
+        position: "absolute",
+        left: "20%",
+        top: "30%",
     },
     hero_image: {
         display: "block",
-
+        transition:"all 1s",
+        '&:hover': {
+            transform: "scale(1.1)"
+        }
     },
     hero_banner: {
         backgroundColor: "var(--primary-color)",
         width: "70%",
-        height:"25%",
+        height: "25%",
         display: "flex",
-        justifyContent: "flex-end",
-        alignItems:"center",
+        flexDirection:"column",
+        justifyContent: "center",
+        alignItems: "flex-end",
         padding: "3rem 3rem",
-        fontSize:"2rem"
+        fontSize: "2rem",
+        clipPath:"polygon(0 0, 100% 0, 98% 50%, 100% 100%, 0 100%)"
+    },
+    hero_banner_text_box:{
+        marginRight:"7.5rem",
+
     },
     hero_banner_title_main: {
+        textTransform: "uppercase",
+        color: "#404040",
+        display:"inline-block",
+    },
+    hero_banner_title_main2:{
         fontSize: "1rem",
-        textTransform:"uppercase",
-        color:"#404040"
+        textTransform: "uppercase",
+        color: "#404040",
+        display:"block",
     },
     hero_banner_title_sub: {},
-    name_greet_outer_box:{
-        width:"70%",
-        display:"flex",
-        justifyContent:"flex-end",
-        marginBottom:"1rem",
+    name_greet_outer_box: {
+        width: "70%",
+        display: "flex",
+        justifyContent: "flex-end",
+        marginBottom: "1rem",
     },
-    name_greet_inner_box:{
-        marginRight:"10rem",
+    name_greet_inner_box: {
+        marginRight: "5.5rem",
     },
-    greet_name:{
-        textTransform:"uppercase",
-        color:"var(--secondary-color)",
+    greet_name: {
+        textTransform: "uppercase",
+        color: "var(--secondary-color)",
+        fontSize:"4.5rem",
     },
-    greet_hi:{
-
+    greet_hi: {
+        color:"#707070",
     }
 
 })
@@ -323,7 +339,6 @@ function Home() {
                                 <li><a className={classes.nav_btn} href="#">Home</a></li>
                                 <li><a className={classes.nav_btn} href="#">About</a></li>
                                 <li><a className={classes.nav_btn} href="#">Projects</a></li>
-                                <li><a className={classes.nav_btn} href="#">Services</a></li>
                                 <li><a className={classes.nav_btn} href="#">Hire me</a></li>
                             </ul>
                         </nav>
@@ -351,14 +366,19 @@ function Home() {
                     <section className={classes.hero_section}>
                         <div className={classes.hero_box}>
                             <div className={classes.name_greet_outer_box}>
-                              <div className={classes.name_greet_inner_box}>
-                                  <Typography variant={"h2"} className={classes.greet_hi}>Hi, I am</Typography>
-                                  <Typography variant={"h2"} className={classes.greet_name} style={{fontWeight:"bold"}}>Shiju P John</Typography>
-                              </div>
+                                <div className={classes.name_greet_inner_box}>
+                                    <Typography variant={"h2"} className={classes.greet_hi}>Hi, I am</Typography>
+                                    <Typography variant={"h2"} className={classes.greet_name}
+                                                style={{fontWeight: "bold"}}>Shiju P John</Typography>
+                                </div>
                             </div>
                             <div className={classes.hero_banner}>
-                                <Typography style={{fontSize:"3rem"}} variant={"h3"} className={classes.hero_banner_title_main}>Full Stack Web
-                                    Dev</Typography>
+                                <div className={classes.hero_banner_text_box}>
+                                    <Typography style={{fontSize: "3rem"}} variant={"h3"}
+                                                className={classes.hero_banner_title_main}>Full Stack Dev</Typography>
+                                    <Typography style={{fontSize: "1.5rem"}} variant={"h3"}
+                                                className={classes.hero_banner_title_main2}>and an aspiring data scientist</Typography>
+                                </div>
                             </div>
                             <div className={classes.hero_image_container}>
                                 <Image src={HeroImage} className={classes.hero_image} alt={""} objectFit={"cover"}/>
