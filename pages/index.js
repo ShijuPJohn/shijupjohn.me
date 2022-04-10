@@ -16,7 +16,7 @@ const useStyles = createUseStyles({
         position: 'sticky',
         top: '0',
         left: '0',
-        height: '100vh',
+        height: '100%',
     },
     side_nav_content: {
         width: 'calc(3vw + 3vh)',
@@ -51,7 +51,7 @@ const useStyles = createUseStyles({
 
     },
     header: {
-        backgroundColor:"rgba(140, 140, 140,1)",
+        backgroundColor: "rgba(140, 140, 140,1)",
         height: 'calc(5vw + 3vh)',
         zIndex: 2,
     },
@@ -135,6 +135,7 @@ const useStyles = createUseStyles({
     '@media screen and (max-width: 610px)': {
         header: {
             backgroundColor: "white",
+            position:"relative",
 
         },
         nav_ul: {
@@ -143,10 +144,13 @@ const useStyles = createUseStyles({
         }
     },
     side_menuIn: {
+        opacity:".85",
         width: "20rem",
         height: "100vh",
         float: "right",
         backgroundColor: "var(--secondary-color)",
+        position:"absolute",
+        right:"0",
         display: "flex",
         flexDirection: "column",
         animationName: '$fadeIn',
@@ -154,9 +158,12 @@ const useStyles = createUseStyles({
         animationTimingFunction: 'linear',
     },
     side_menuOut: {
+        opacity:".85",
+        position:"absolute",
         width: "20rem",
         height: "100vh",
         float: "right",
+        right:"0",
         backgroundColor: "var(--secondary-color)",
         display: "flex",
         flexDirection: "column",
@@ -169,12 +176,12 @@ const useStyles = createUseStyles({
             opacity: 0,
         },
         to: {
-            opacity: .7,
+            opacity: .85,
         }
     },
     '@keyframes fadeOut': {
         from: {
-            opacity: .7,
+            opacity: .85,
         },
         to: {
             opacity: 0,
@@ -226,49 +233,68 @@ const useStyles = createUseStyles({
         alignItems: "center",
         position: "relative",
     },
-    hero_image_container: {
-        display: "block",
-        width: "calc(5rem + 17vw)",
-        boxShadow: "12px 7px 16px -4px rgba(0,0,0,0.58)",
-        backgroundColor: "teal",
-        fontSize: "0",
-        position: "absolute",
-        left: "20%",
-        top: "30%",
+    '@keyframes moveInLeft': {
+        from: {
+            opacity: "0",
+            marginLeft: "-50rem",
+        },
+        to: {
+            opacity: "1",
+            marginLeft: "0",
+        }
     },
+    '@keyframes moveInRight': {
+        from: {
+            opacity: "0",
+            marginLeft: "50rem",
+        },
+        to: {
+            opacity: "1",
+            marginLeft: "0",
+        }
+    },
+    '@keyframes moveInTop': {
+        from: {
+            opacity: "0",
+            marginTop: "-50rem",
+        },
+        to: {
+            opacity: "1.1",
+            marginTop: "0",
+        }
+    },
+    hero_image_container: {
+
+    },
+
+
     hero_image: {
         display: "block",
-        transition:"all 1s",
-        '&:hover': {
-            transform: "scale(1.1)"
-        }
+
     },
     hero_banner: {
         backgroundColor: "var(--primary-color)",
-        width: "70%",
-        height: "25%",
+        width: "60vw",
+        height: "35%",
         display: "flex",
-        flexDirection:"column",
-        justifyContent: "center",
-        alignItems: "flex-end",
         padding: "3rem 3rem",
         fontSize: "2rem",
-        clipPath:"polygon(0 0, 100% 0, 98% 50%, 100% 100%, 0 100%)"
     },
-    hero_banner_text_box:{
-        marginRight:"7.5rem",
+    hero_banner_text_box: {
+        marginRight: "7.5rem",
 
     },
     hero_banner_title_main: {
         textTransform: "uppercase",
         color: "#404040",
-        display:"inline-block",
+        display: "inline-block",
+        fontSize: "3.5rem"
     },
-    hero_banner_title_main2:{
-        fontSize: "1rem",
+    hero_banner_title_main2: {
         textTransform: "uppercase",
         color: "#404040",
-        display:"block",
+        display: "block",
+        fontSize: "1.5rem"
     },
     hero_banner_title_sub: {},
     name_greet_outer_box: {
@@ -283,17 +309,108 @@ const useStyles = createUseStyles({
     greet_name: {
         textTransform: "uppercase",
         color: "var(--secondary-color)",
-        fontSize:"4.5rem",
+        fontSize: "4.5rem",
     },
     greet_hi: {
-        color:"#707070",
-    }
+        color: "#707070",
+    },
+    [`@media (min-width: ${900}px)`]: {
+        hero_banner: {
+            clipPath: "polygon(0 0, 100% 0, 97% 94%,  0 100%)",
+            animationName: "$moveInRight",
+            animationDuration: "2s",
+            animationTimingFunction: "ease-out",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "flex-end",
+        },
+        name_greet_inner_box: {
+            animationName: "$moveInTop",
+            animationDuration: "2s",
+            animationTimingFunction: "ease-out",
+        },
+        hero_image_container: {
+            zIndex:"2",
+            display: "block",
+            width: "calc(5rem + 17vw)",
+            boxShadow: "12px 7px 16px -4px rgba(0,0,0,0.58)",
+            backgroundColor: "teal",
+            fontSize: "0",
+            position:"absolute",
+            left: "calc(12rem + 6vw )",
+            top: "30%",
+            animationName: "$moveInLeft",
+            animationDuration: "2s",
+            animationTimingFunction: "ease-out",
+            transition: "all 1s",
+            '&:hover': {
+                transform: "scale(1.1)"
+            },
+        },
+    },
+    [`@media (max-width: ${1200}px)`]: {
+        hero_image_container: {
+            width: "18vw",
+            left:"11rem"
+        },
+    },
+    [`@media (max-width: ${1000}px)`]: {
+        hero_image_container: {
+            width: "15vw",
+            left:"11rem"
+        },
+    },
+    [`@media (max-width: ${900}px)`]: {
+        hero_image_container: {
+            width: "14vw",
+            left:"10rem"
+        },
+    },
+
+    [`@media (max-width: ${700}px)`]: {
+        hero_image_container: {
+            width: "30rem",
+            left:"10rem",
+            top:"55vh",
+            marginBottom: "1rem",
+        },
+        name_greet_outer_box: {
+            justifyContent: "center",
+            animationName:"none",
+            width:"85vw"
+        },
+        hero_banner:{
+            // clipPath: "none",
+            width:"30rem"
+        },
+        hero_banner_text_box:{
+            width:"30rem"
+        },
+        greet_name:{
+            fontSize:"4rem"
+        },
+        greet_hi:{
+            fontSize:"2rem"
+        },
+        hero_box:{
+            // marginTop:"-60rem"
+            marginTop:"1rem",
+        },
+        hero_banner_title_main:{
+            fontSize:"2rem",
+        },
+        hero_banner_title_main2:{
+            fontSize:"1rem",
+        }
+    },
+
 
 })
 
 function Home() {
     const theme = useTheme()
-    const matches = useMediaQuery(theme.breakpoints.down("sm"));
+    const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+    const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
     const [showMenu, setShowMenu] = useState(false)
     const [animeOut, setAnimeOut] = useState(false)
     const classes = useStyles()
@@ -333,7 +450,7 @@ function Home() {
                 </div>
                 {/* Main Nav */}
                 <main className={classes.main}>
-                    {!matches && <header className={classes.header}>
+                    {!matchesSM && <header className={classes.header}>
                         <nav className={classes.header_nav}>
                             <ul className={classes.nav_ul}>
                                 <li><a className={classes.nav_btn} href="#">Home</a></li>
@@ -343,7 +460,7 @@ function Home() {
                             </ul>
                         </nav>
                     </header>}
-                    {matches && <div className={classes.header}>
+                    {matchesSM && <div className={classes.header}>
                         {!showMenu && <div className={classes.main_nav_hamburger} onClick={menuOpenHandler}>
                             <div className={classes.line}/>
                             <div className={classes.line}/>
@@ -372,17 +489,19 @@ function Home() {
                                                 style={{fontWeight: "bold"}}>Shiju P John</Typography>
                                 </div>
                             </div>
-                            <div className={classes.hero_banner}>
-                                <div className={classes.hero_banner_text_box}>
-                                    <Typography style={{fontSize: "3rem"}} variant={"h3"}
-                                                className={classes.hero_banner_title_main}>Full Stack Dev</Typography>
-                                    <Typography style={{fontSize: "1.5rem"}} variant={"h3"}
-                                                className={classes.hero_banner_title_main2}>and an aspiring data scientist</Typography>
-                                </div>
-                            </div>
                             <div className={classes.hero_image_container}>
                                 <Image src={HeroImage} className={classes.hero_image} alt={""} objectFit={"cover"}/>
                             </div>
+                            <div className={classes.hero_banner}>
+                                <div className={classes.hero_banner_text_box}>
+                                    <Typography variant={"h3"}
+                                                className={classes.hero_banner_title_main}>Full Stack Dev</Typography>
+                                    <Typography  variant={"h3"}
+                                                className={classes.hero_banner_title_main2}>and an aspiring data
+                                        scientist</Typography>
+                                </div>
+                            </div>
+
                         </div>
                     </section>
                 </main>
