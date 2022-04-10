@@ -1,10 +1,12 @@
 import Head from 'next/head'
 import React, {useState} from 'react'
 import {createUseStyles} from "react-jss";
-import {faFacebookF, faLinkedinIn, faTwitter} from "@fortawesome/free-brands-svg-icons";
+import {faFacebookF, faGithub, faHackerrank, faLinkedinIn, faTwitter} from "@fortawesome/free-brands-svg-icons";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {useMediaQuery, useTheme} from "@mui/material";
+import {Typography, useMediaQuery, useTheme} from "@mui/material";
 import ClearIcon from '@mui/icons-material/Clear';
+import Image from "next/image";
+import HeroImage from '../public/hero2.jpg'
 
 const useStyles = createUseStyles({
     root_container: {
@@ -34,12 +36,12 @@ const useStyles = createUseStyles({
     social_ul: {},
     social_button: {
         display: 'block',
-        color: '#d1d1d1',
+        color: '#ebebeb',
         margin: 'calc(2rem + .7vw) 0',
         fontSize: 'calc(1rem + 1.1vw)',
         transition: '.2s',
         "&:hover": {
-            color: '#ded18a',
+            color: '#ff7091',
             transform: 'scale(1.2)',
         }
     },
@@ -49,7 +51,7 @@ const useStyles = createUseStyles({
 
     },
     header: {
-        backgroundColor: "var(--secondary-color)",
+        backgroundColor: "rgba(209, 67, 100,.8)",
         height: 'calc(5vw + 3vh)',
         zIndex: 2,
     },
@@ -66,29 +68,26 @@ const useStyles = createUseStyles({
         position: "fixed",
         top: "2rem",
         right: "3rem",
-        backgroundColor: "var(--secondary-color)",
+        borderStyle: "solid",
+        borderColor: "var(--secondary-color)",
+        borderWidth: "1px",
+        borderRadius: "5px",
         cursor: "pointer",
-        borderRadius: "50%",
         padding: "1rem",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        boxShadow: ".4rem .4rem 2rem",
         animationName: '$fadeIn',
         animationDuration: '.5s',
         animationTimingFunction: 'linear',
     },
     line: {
         width: "2rem",
-        backgroundColor: "white",
+        backgroundColor: "var(--secondary-color)",
         height: ".3rem",
         margin: ".3rem",
     },
-    line1: {},
-    line2: {},
-    line3: {},
-    line4: {},
     nav_ul: {
         display: "flex",
         alignItems: "center",
@@ -147,7 +146,7 @@ const useStyles = createUseStyles({
         width: "20rem",
         height: "100vh",
         float: "right",
-        backgroundColor: "rgba(255, 148, 8,.7)",
+        backgroundColor: "rgba(209, 67, 100,.8)",
         display: "flex",
         flexDirection: "column",
         animationName: '$fadeIn',
@@ -158,7 +157,7 @@ const useStyles = createUseStyles({
         width: "20rem",
         height: "100vh",
         float: "right",
-        backgroundColor: "rgba(255, 148, 8,.7)",
+        backgroundColor: "rgba(209, 67, 100,.7)",
         display: "flex",
         flexDirection: "column",
         animationName: '$fadeOut',
@@ -170,12 +169,12 @@ const useStyles = createUseStyles({
             opacity: 0,
         },
         to: {
-            opacity: 1,
+            opacity: .7,
         }
     },
     '@keyframes fadeOut': {
         from: {
-            opacity: 1,
+            opacity: .7,
         },
         to: {
             opacity: 0,
@@ -209,7 +208,70 @@ const useStyles = createUseStyles({
         }
 
     },
+    hero_section: {
+        width: "calc(97vw - 3vh)",
+        height: 'calc(97vh - 5vw)',
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    hero_box: {
+        marginTop:"-20rem",
+        width: "80vw",
+        height: "50vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-end",
+        alignItems: "center",
+        position:"relative",
+    },
+    hero_image_container: {
+        display: "block",
+        width: "calc(5rem + 17vw)",
+        boxShadow: "12px 7px 16px -4px rgba(0,0,0,0.58)",
+        backgroundColor: "teal",
+        fontSize: "0",
+        position:"absolute",
+        left:"20%",
+        top:"30%",
+    },
+    hero_image: {
+        display: "block",
 
+    },
+    hero_banner: {
+        backgroundColor: "var(--primary-color)",
+        width: "70%",
+        height:"25%",
+        display: "flex",
+        justifyContent: "flex-end",
+        alignItems:"center",
+        padding: "3rem 3rem",
+        fontSize:"2rem"
+    },
+    hero_banner_title_main: {
+        fontSize: "1rem",
+        textTransform:"uppercase",
+        color:"#404040"
+    },
+    hero_banner_title_sub: {},
+    name_greet_outer_box:{
+        width:"70%",
+        display:"flex",
+        justifyContent:"flex-end",
+        marginBottom:"1rem",
+    },
+    name_greet_inner_box:{
+        marginRight:"10rem",
+    },
+    greet_name:{
+        textTransform:"uppercase",
+        color:"var(--secondary-color)",
+    },
+    greet_hi:{
+
+    }
 
 })
 
@@ -246,6 +308,10 @@ function Home() {
                                 <FontAwesomeIcon icon={faTwitter}/></a>
                             <a className={classes.social_button} href="#">
                                 <FontAwesomeIcon icon={faLinkedinIn}/></a>
+                            <a className={classes.social_button} href="#">
+                                <FontAwesomeIcon icon={faGithub}/></a>
+                            <a className={classes.social_button} href="#">
+                                <FontAwesomeIcon icon={faHackerrank}/></a>
                         </ul>
                     </div>
                 </div>
@@ -282,7 +348,23 @@ function Home() {
                             </ul>
                         </div>}
                     </div>}
-
+                    <section className={classes.hero_section}>
+                        <div className={classes.hero_box}>
+                            <div className={classes.name_greet_outer_box}>
+                              <div className={classes.name_greet_inner_box}>
+                                  <Typography variant={"h2"} className={classes.greet_hi}>Hi, I am</Typography>
+                                  <Typography variant={"h2"} className={classes.greet_name} style={{fontWeight:"bold"}}>Shiju P John</Typography>
+                              </div>
+                            </div>
+                            <div className={classes.hero_banner}>
+                                <Typography style={{fontSize:"3rem"}} variant={"h3"} className={classes.hero_banner_title_main}>Full Stack Web
+                                    Dev</Typography>
+                            </div>
+                            <div className={classes.hero_image_container}>
+                                <Image src={HeroImage} className={classes.hero_image} alt={""} objectFit={"cover"}/>
+                            </div>
+                        </div>
+                    </section>
                 </main>
             </div>
         </React.Fragment>

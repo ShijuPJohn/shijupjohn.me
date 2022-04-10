@@ -20,8 +20,8 @@ a {
   box-sizing: inherit;
 }
 :root{
-  --primary-color: #014d4e;
-  --secondary-color: #ff9408;
+  --primary-color:#10b09a;
+  --secondary-color: #d14364;
   --secondary-color-mo: #ff94088e;
   --tertiary-color: #017374;
   --tertiary-color-m: #01727498;
