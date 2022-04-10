@@ -252,7 +252,7 @@ const useStyles = createUseStyles({
             marginTop: "-50rem",
         },
         to: {
-            opacity:"1",
+            opacity:"1.1",
             marginTop: "0",
         }
     },
@@ -266,15 +266,16 @@ const useStyles = createUseStyles({
         left: "20%",
         top: "30%",
         animationName:"$moveInLeft",
-        animationDuration:"1.9s",
+        animationDuration:"2s",
         animationTimingFunction:"ease-out",
-    },
-    hero_image: {
-        display: "block",
         transition:"all 1s",
         '&:hover': {
             transform: "scale(1.1)"
         }
+    },
+    hero_image: {
+        display: "block",
+
     },
     hero_banner: {
         backgroundColor: "var(--primary-color)",
@@ -312,13 +313,14 @@ const useStyles = createUseStyles({
         display: "flex",
         justifyContent: "flex-end",
         marginBottom: "1rem",
-        animationName:"$moveInTop",
-        animationDuration:"2s",
-        animationTimingFunction:"ease-out",
+
 
     },
     name_greet_inner_box: {
         marginRight: "5.5rem",
+        animationName:"$moveInTop",
+        animationDuration:"2s",
+        animationTimingFunction:"ease-out",
     },
     greet_name: {
         textTransform: "uppercase",
