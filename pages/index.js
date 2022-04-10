@@ -226,6 +226,36 @@ const useStyles = createUseStyles({
         alignItems: "center",
         position: "relative",
     },
+    '@keyframes moveInLeft': {
+        from: {
+            opacity:"0",
+            marginLeft: "-50rem",
+        },
+        to: {
+            opacity:"1",
+            marginLeft: "0",
+        }
+    },
+    '@keyframes moveInRight': {
+        from: {
+            opacity:"0",
+            marginLeft: "50rem",
+        },
+        to: {
+            opacity:"1",
+            marginLeft: "0",
+        }
+    },
+    '@keyframes moveInTop': {
+        from: {
+            opacity:"0",
+            marginTop: "-50rem",
+        },
+        to: {
+            opacity:"1",
+            marginTop: "0",
+        }
+    },
     hero_image_container: {
         display: "block",
         width: "calc(5rem + 17vw)",
@@ -235,6 +265,9 @@ const useStyles = createUseStyles({
         position: "absolute",
         left: "20%",
         top: "30%",
+        animationName:"$moveInLeft",
+        animationDuration:"1.9s",
+        animationTimingFunction:"ease-out",
     },
     hero_image: {
         display: "block",
@@ -253,7 +286,10 @@ const useStyles = createUseStyles({
         alignItems: "flex-end",
         padding: "3rem 3rem",
         fontSize: "2rem",
-        clipPath:"polygon(0 0, 100% 0, 98% 50%, 100% 100%, 0 100%)"
+        clipPath:"polygon(0 0, 100% 0, 98% 50%, 100% 100%, 0 100%)",
+        animationName:"$moveInRight",
+        animationDuration:"2s",
+        animationTimingFunction:"ease-out",
     },
     hero_banner_text_box:{
         marginRight:"7.5rem",
@@ -276,6 +312,10 @@ const useStyles = createUseStyles({
         display: "flex",
         justifyContent: "flex-end",
         marginBottom: "1rem",
+        animationName:"$moveInTop",
+        animationDuration:"2s",
+        animationTimingFunction:"ease-out",
+
     },
     name_greet_inner_box: {
         marginRight: "5.5rem",
