@@ -42,7 +42,7 @@ const useStyles = createUseStyles({
         fontSize: 'calc(1rem + 1.1vw)',
         transition: '.2s',
         "&:hover": {
-            color: '#ff7091',
+            color: 'var(--secondary-color)',
             transform: 'scale(1.2)',
         }
     },
