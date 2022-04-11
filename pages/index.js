@@ -7,6 +7,7 @@ import {Typography, useMediaQuery, useTheme} from "@mui/material";
 import ClearIcon from '@mui/icons-material/Clear';
 import Image from "next/image";
 import HeroImage from '../public/hero2.jpg'
+import {teal} from "@mui/material/colors";
 
 const useStyles = createUseStyles({
     root_container: {
@@ -41,7 +42,7 @@ const useStyles = createUseStyles({
         fontSize: 'calc(1rem + 1.1vw)',
         transition: '.2s',
         "&:hover": {
-            color: '#ff7091',
+            color: 'var(--secondary-color)',
             transform: 'scale(1.2)',
         }
     },
@@ -96,13 +97,15 @@ const useStyles = createUseStyles({
         color: "white",
     },
     nav_btn: {
-        fontSize: "calc(1.2rem + .667vw)",
+        fontSize: "calc(1.2rem + .55vw)",
+        textTransform:"uppercase",
         margin: "1rem calc(1rem + 1vw)",
         position: "relative",
+        color:"var(--secondary-color)",
         '&::after': {
             content: "''",
             position: "absolute",
-            backgroundColor: "white",
+            backgroundColor: "var(--secondary-color)",
             bottom: "0",
             left: "0",
             width: "100%",
@@ -115,7 +118,7 @@ const useStyles = createUseStyles({
         '&::before': {
             content: "''",
             position: "absolute",
-            backgroundColor: "white",
+            backgroundColor: "var(--secondary-color)",
             top: "0",
             left: "0",
             width: "100%",
@@ -144,11 +147,11 @@ const useStyles = createUseStyles({
         }
     },
     side_menuIn: {
-        opacity:".85",
+        opacity:".9",
         width: "20rem",
         height: "100vh",
         float: "right",
-        backgroundColor: "var(--secondary-color)",
+        backgroundColor: "rgba(140, 140, 140,1)",
         position:"absolute",
         right:"0",
         display: "flex",
@@ -158,13 +161,13 @@ const useStyles = createUseStyles({
         animationTimingFunction: 'linear',
     },
     side_menuOut: {
-        opacity:".85",
+        opacity:".9",
         position:"absolute",
         width: "20rem",
         height: "100vh",
         float: "right",
         right:"0",
-        backgroundColor: "var(--secondary-color)",
+        backgroundColor: "rgba(140, 140, 140,1)",
         display: "flex",
         flexDirection: "column",
         animationName: '$fadeOut',
@@ -282,7 +285,6 @@ const useStyles = createUseStyles({
     },
     hero_banner_text_box: {
         marginRight: "7.5rem",
-
     },
     hero_banner_title_main: {
         textTransform: "uppercase",
@@ -316,18 +318,21 @@ const useStyles = createUseStyles({
     },
     [`@media (min-width: ${900}px)`]: {
         hero_banner: {
-            clipPath: "polygon(0 0, 100% 0, 97% 94%,  0 100%)",
             animationName: "$moveInRight",
             animationDuration: "2s",
             animationTimingFunction: "ease-out",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "flex-end",
+            width:"60vw",
         },
         name_greet_inner_box: {
             animationName: "$moveInTop",
             animationDuration: "2s",
             animationTimingFunction: "ease-out",
+        },
+        hero_banner_title_main2:{
+            letterSpacing:".12rem"
         },
         hero_image_container: {
             zIndex:"2",
@@ -361,10 +366,42 @@ const useStyles = createUseStyles({
         },
     },
     [`@media (max-width: ${900}px)`]: {
+        hero_banner:{
+            justifyContent:"center",
+            width: "55vw",
+        },
         hero_image_container: {
-            width: "14vw",
+            width: "26rem",
             left:"10rem"
         },
+        hero_box: {
+            marginTop: "16rem",
+            width: "80vw",
+            height: "50vh",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-end",
+            alignItems: "center",
+            position: "relative",
+        },
+        name_greet_inner_box: {
+            margin:"0",
+        },
+        name_greet_outer_box: {
+            marginRight: "0",
+            marginBottom:"1rem",
+            justifyContent:"center",
+        },
+        hero_banner_text_box:{
+            textAlign:"center",
+            margin:"0",
+        },
+        greet_name:{
+            fontSize:"4rem"
+        },
+        hero_banner_title_main2:{
+            letterSpacing:".1rem"
+        }
     },
 
     [`@media (max-width: ${700}px)`]: {
@@ -381,7 +418,7 @@ const useStyles = createUseStyles({
         },
         hero_banner:{
             // clipPath: "none",
-            width:"30rem"
+            width:"35rem"
         },
         hero_banner_text_box:{
             width:"30rem"
@@ -390,17 +427,17 @@ const useStyles = createUseStyles({
             fontSize:"4rem"
         },
         greet_hi:{
-            fontSize:"2rem"
+            fontSize:"3rem"
         },
         hero_box:{
-            // marginTop:"-60rem"
-            marginTop:"1rem",
+            marginTop:"calc(2rem + 15vh)",
         },
         hero_banner_title_main:{
-            fontSize:"2rem",
+            fontSize:"3rem",
         },
         hero_banner_title_main2:{
-            fontSize:"1rem",
+            fontSize:"1.3rem",
+            letterSpacing: ".1rem"
         }
     },
 
