@@ -49,7 +49,6 @@ const useStyles = createUseStyles({
 
     main: {
         flex: 1,
-
     },
     header: {
         backgroundColor: "var(--grey-color)",
@@ -99,6 +98,7 @@ const useStyles = createUseStyles({
     nav_btn: {
         fontSize: "calc(1.2rem + .55vw)",
         textTransform: "uppercase",
+        padding:".5rem",
         margin: "1rem calc(1rem + 1vw)",
         position: "relative",
         color: "var(--secondary-color)",
