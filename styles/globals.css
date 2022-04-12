@@ -1,11 +1,10 @@
 html,
 body {
-    font-family: -apple-system, "Baloo Tamma 2", BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    font-family: -apple-system, "Raleway", BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     font-size: 62.5%;
     line-height: 1.8;
     box-sizing: border-box;
-    /*overflow-x: hidden;*/
 
 }
 a {
