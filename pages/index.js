@@ -7,7 +7,7 @@ import {Typography, useMediaQuery, useTheme} from "@mui/material";
 import ClearIcon from '@mui/icons-material/Clear';
 import Image from "next/image";
 import HeroImage from '../public/hero2.jpg'
-import {teal} from "@mui/material/colors";
+import AboutMe from "../src/components/AboutMe";
 
 const useStyles = createUseStyles({
     root_container: {
@@ -20,7 +20,7 @@ const useStyles = createUseStyles({
         height: '100%',
     },
     side_nav_content: {
-        width: 'calc(3vw + 3vh)',
+        width: 'calc(1rem + 4vw)',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -52,7 +52,7 @@ const useStyles = createUseStyles({
 
     },
     header: {
-        backgroundColor: "rgba(140, 140, 140,1)",
+        backgroundColor: "var(--grey-color)",
         height: 'calc(5vw + 3vh)',
         zIndex: 2,
     },
@@ -98,10 +98,10 @@ const useStyles = createUseStyles({
     },
     nav_btn: {
         fontSize: "calc(1.2rem + .55vw)",
-        textTransform:"uppercase",
+        textTransform: "uppercase",
         margin: "1rem calc(1rem + 1vw)",
         position: "relative",
-        color:"var(--secondary-color)",
+        color: "var(--secondary-color)",
         '&::after': {
             content: "''",
             position: "absolute",
@@ -138,7 +138,7 @@ const useStyles = createUseStyles({
     '@media screen and (max-width: 610px)': {
         header: {
             backgroundColor: "white",
-            position:"relative",
+            position: "relative",
 
         },
         nav_ul: {
@@ -147,13 +147,13 @@ const useStyles = createUseStyles({
         }
     },
     side_menuIn: {
-        opacity:".9",
+        opacity: ".9",
         width: "20rem",
         height: "100vh",
         float: "right",
         backgroundColor: "rgba(140, 140, 140,1)",
-        position:"absolute",
-        right:"0",
+        position: "absolute",
+        right: "0",
         display: "flex",
         flexDirection: "column",
         animationName: '$fadeIn',
@@ -161,12 +161,12 @@ const useStyles = createUseStyles({
         animationTimingFunction: 'linear',
     },
     side_menuOut: {
-        opacity:".9",
-        position:"absolute",
+        opacity: ".9",
+        position: "absolute",
         width: "20rem",
         height: "100vh",
         float: "right",
-        right:"0",
+        right: "0",
         backgroundColor: "rgba(140, 140, 140,1)",
         display: "flex",
         flexDirection: "column",
@@ -219,7 +219,7 @@ const useStyles = createUseStyles({
 
     },
     hero_section: {
-        width: "calc(97vw - 3vh)",
+        width: "calc(97vw - 1rem - 4vw)",
         height: 'calc(97vh - 5vw)',
         display: "flex",
         flexDirection: "column",
@@ -266,9 +266,7 @@ const useStyles = createUseStyles({
             marginTop: "0",
         }
     },
-    hero_image_container: {
-
-    },
+    hero_image_container: {},
 
 
     hero_image: {
@@ -324,24 +322,24 @@ const useStyles = createUseStyles({
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "flex-end",
-            width:"60vw",
+            width: "60vw",
         },
         name_greet_inner_box: {
             animationName: "$moveInTop",
             animationDuration: "2s",
             animationTimingFunction: "ease-out",
         },
-        hero_banner_title_main2:{
-            letterSpacing:".12rem"
+        hero_banner_title_main2: {
+            letterSpacing: ".12rem"
         },
         hero_image_container: {
-            zIndex:"2",
+            zIndex: "2",
             display: "block",
             width: "calc(5rem + 17vw)",
             boxShadow: "12px 7px 16px -4px rgba(0,0,0,0.58)",
             backgroundColor: "teal",
             fontSize: "0",
-            position:"absolute",
+            position: "absolute",
             left: "calc(12rem + 6vw )",
             top: "30%",
             animationName: "$moveInLeft",
@@ -356,23 +354,23 @@ const useStyles = createUseStyles({
     [`@media (max-width: ${1200}px)`]: {
         hero_image_container: {
             width: "18vw",
-            left:"11rem"
+            left: "11rem"
         },
     },
     [`@media (max-width: ${1000}px)`]: {
         hero_image_container: {
             width: "15vw",
-            left:"11rem"
+            left: "11rem"
         },
     },
     [`@media (max-width: ${900}px)`]: {
-        hero_banner:{
-            justifyContent:"center",
+        hero_banner: {
+            justifyContent: "center",
             width: "55vw",
         },
         hero_image_container: {
             width: "26rem",
-            left:"10rem"
+            left: "10rem"
         },
         hero_box: {
             marginTop: "16rem",
@@ -385,61 +383,63 @@ const useStyles = createUseStyles({
             position: "relative",
         },
         name_greet_inner_box: {
-            margin:"0",
+            margin: "0",
         },
         name_greet_outer_box: {
             marginRight: "0",
-            marginBottom:"1rem",
-            justifyContent:"center",
+            marginBottom: "1rem",
+            justifyContent: "center",
         },
-        hero_banner_text_box:{
-            textAlign:"center",
-            margin:"0",
+        hero_banner_text_box: {
+            textAlign: "center",
+            margin: "0",
         },
-        greet_name:{
-            fontSize:"4rem"
+        greet_name: {
+            fontSize: "4rem"
         },
-        hero_banner_title_main2:{
-            letterSpacing:".1rem"
+        hero_banner_title_main2: {
+            letterSpacing: ".1rem"
         }
     },
 
     [`@media (max-width: ${700}px)`]: {
         hero_image_container: {
             width: "30rem",
-            left:"10rem",
-            top:"55vh",
+            left: "10rem",
+            top: "55vh",
             marginBottom: "1rem",
         },
         name_greet_outer_box: {
             justifyContent: "center",
-            animationName:"none",
-            width:"85vw"
+            animationName: "none",
+            width: "85vw"
         },
-        hero_banner:{
+        hero_banner: {
             // clipPath: "none",
-            width:"35rem"
+            width: "35rem"
         },
-        hero_banner_text_box:{
-            width:"30rem"
+        hero_banner_text_box: {
+            width: "30rem"
         },
-        greet_name:{
-            fontSize:"4rem"
+        greet_name: {
+            fontSize: "4rem"
         },
-        greet_hi:{
-            fontSize:"3rem"
+        greet_hi: {
+            fontSize: "3rem"
         },
-        hero_box:{
-            marginTop:"calc(2rem + 15vh)",
+        hero_box: {
+            marginTop: "calc(2rem + 15vh)",
         },
-        hero_banner_title_main:{
-            fontSize:"3rem",
+        hero_banner_title_main: {
+            fontSize: "3rem",
         },
-        hero_banner_title_main2:{
-            fontSize:"1.3rem",
+        hero_banner_title_main2: {
+            fontSize: "1.3rem",
             letterSpacing: ".1rem"
         }
     },
+    about_me:{
+    }
 
 
 })
@@ -533,13 +533,15 @@ function Home() {
                                 <div className={classes.hero_banner_text_box}>
                                     <Typography variant={"h3"}
                                                 className={classes.hero_banner_title_main}>Full Stack Dev</Typography>
-                                    <Typography  variant={"h3"}
+                                    <Typography variant={"h3"}
                                                 className={classes.hero_banner_title_main2}>and an aspiring data
                                         scientist</Typography>
                                 </div>
                             </div>
-
                         </div>
+                    </section>
+                    <section className={classes.about_me}>
+                        <AboutMe/>
                     </section>
                 </main>
             </div>
