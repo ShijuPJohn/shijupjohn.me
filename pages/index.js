@@ -220,11 +220,14 @@ const useStyles = createUseStyles({
     },
     hero_section: {
         width: "calc(97vw - 1rem - 4vw)",
-        height: 'calc(97vh - 5vw)',
+        height: '50rem',
+        marginBottom:"5rem",
+        marginTop:"5rem",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+
     },
     hero_box: {
         marginTop: "-20rem",
@@ -366,19 +369,29 @@ const useStyles = createUseStyles({
     [`@media (max-width: ${900}px)`]: {
         hero_banner: {
             justifyContent: "center",
-            width: "55vw",
+            width: "80%",
         },
         hero_image_container: {
-            width: "26rem",
-            left: "10rem"
+            width: "80%",
+            left: "10rem",
+            borderStyle: "solid",
+            borderWidth: "1px",
+            padding:"1rem",
+            display:"flex",
+            justifyContent:"center",
+            alignItems:"center",
+            marginBottom:"1.5rem",
+
+        },
+        hero_section:{
+            marginTop:"10rem",
+            marginBottom:"10rem"
         },
         hero_box: {
-            marginTop: "16rem",
             width: "80vw",
-            height: "50vh",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "flex-end",
+            justifyContent: "flex-start",
             alignItems: "center",
             position: "relative",
         },
@@ -404,31 +417,39 @@ const useStyles = createUseStyles({
 
     [`@media (max-width: ${700}px)`]: {
         hero_image_container: {
-            width: "30rem",
-            left: "10rem",
-            top: "55vh",
+            width: "105%",
             marginBottom: "1rem",
+            display:"flex",
+            justifyContent:"center",
+            alignItems:"center",
         },
         name_greet_outer_box: {
-            justifyContent: "center",
+            justifyContent: "flex-start",
             animationName: "none",
-            width: "85vw"
+            width: "100%"
         },
         hero_banner: {
-            // clipPath: "none",
-            width: "35rem"
+            width: "105%"
         },
         hero_banner_text_box: {
             width: "30rem"
         },
         greet_name: {
-            fontSize: "4rem"
+            fontSize: "3.5rem"
         },
         greet_hi: {
             fontSize: "3rem"
         },
+        hero_section:{
+
+        },
         hero_box: {
-            marginTop: "calc(2rem + 15vh)",
+            width: "80vw",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-start",
+            alignItems: "center",
+            position: "relative",
         },
         hero_banner_title_main: {
             fontSize: "3rem",
