@@ -65,9 +65,9 @@ const useStyles = createUseStyles({
     main_nav_hamburger: {
         width: "5rem",
         height: "5rem",
-        position: "fixed",
-        top: "2rem",
-        right: "3rem",
+        position: "absolute",
+        top: "1rem",
+        right: "1.5rem",
         borderStyle: "solid",
         borderColor: "var(--secondary-color)",
         borderWidth: "1px",
