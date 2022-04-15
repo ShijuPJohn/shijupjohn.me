@@ -96,7 +96,7 @@ const useStyles = createUseStyles({
         color: "white",
     },
     nav_btn: {
-        fontSize: "calc(1.2rem + .55vw)",
+        fontSize: "calc(1rem + .55vw)",
         textTransform: "uppercase",
         padding:".5rem",
         margin: "1rem calc(1rem + 1vw)",
