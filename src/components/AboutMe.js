@@ -115,18 +115,38 @@ const useStyles = createUseStyles({
             justifyContent:"center",
             alignItems:"center",
             paddingLeft:"0",
+            border:"none",
         },
         aboutImageContainer: {
             marginBottom: "3rem",
+            width:"100%",
+            display:"flex",
+            justifyContent:"center",
+            alignItems:"center",
+            borderStyle: "solid",
+            borderWidth :"1px",
+            paddingLeft:"15rem",
+            paddingRight:"15rem",
+            paddingTop:"1rem",
+            paddingBottom: "1rem",
         },
         banner:{
             textAlign:"center",
+            width:"100%",
+        },
+        aboutTextOuterBox: {
+            width: "100%"
         },
         aboutTextBox: {
-            width: "95%",
-            marginLeft: "1rem",
+            margin:"0",
+            width: "100%",
         },
     },
+    [`@media (max-width: ${700}px)`]: {
+        aboutImageContainer: {
+            padding:"2rem",
+        },
+    }
 })
 
 function AboutMe() {
