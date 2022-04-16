@@ -389,7 +389,7 @@ const useStyles = createUseStyles({
 
         },
         hero_section:{
-            minHeight:"80vh",
+            minHeight:"55rem",
             marginTop:"4rem",
         },
         hero_box: {
