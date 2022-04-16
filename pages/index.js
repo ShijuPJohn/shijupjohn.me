@@ -8,10 +8,12 @@ import ClearIcon from '@mui/icons-material/Clear';
 import Image from "next/image";
 import HeroImage from '../public/hero2.jpg'
 import AboutMe from "../src/components/AboutMe";
+import {red} from "@mui/material/colors";
 
 const useStyles = createUseStyles({
     root_container: {
         display: 'flex',
+        // alignItems:"flex-start"
     },
     side_nav: {
         position: 'sticky',
@@ -151,7 +153,7 @@ const useStyles = createUseStyles({
         width: "20rem",
         height: "100vh",
         float: "right",
-        backgroundColor: "rgba(140, 140, 140,1)",
+        backgroundColor: "rgba(52, 64, 61,1)",
         position: "absolute",
         right: "0",
         display: "flex",
@@ -167,7 +169,7 @@ const useStyles = createUseStyles({
         height: "100vh",
         float: "right",
         right: "0",
-        backgroundColor: "rgba(140, 140, 140,1)",
+        backgroundColor: "rgba(52, 64, 61,1)",
         display: "flex",
         flexDirection: "column",
         animationName: '$fadeOut',
@@ -225,12 +227,11 @@ const useStyles = createUseStyles({
         marginTop:"5rem",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
+        justifyContent: "flex-start",
         alignItems: "center",
 
     },
     hero_box: {
-        marginTop: "-20rem",
         width: "80vw",
         height: "50vh",
         display: "flex",
@@ -279,8 +280,10 @@ const useStyles = createUseStyles({
     hero_banner: {
         backgroundColor: "var(--primary-color)",
         width: "60vw",
-        height: "35%",
+        height: "12rem",
         display: "flex",
+        justifyContent:"center",
+        alignItems:"center",
         padding: "3rem 3rem",
         fontSize: "2rem",
     },
@@ -368,6 +371,7 @@ const useStyles = createUseStyles({
     },
     [`@media (max-width: ${900}px)`]: {
         hero_banner: {
+            marginTop:"1rem",
             justifyContent: "center",
             width: "80%",
         },
@@ -376,16 +380,17 @@ const useStyles = createUseStyles({
             left: "10rem",
             borderStyle: "solid",
             borderWidth: "1px",
-            padding:"1rem",
+            padding:"2rem",
             display:"flex",
             justifyContent:"center",
             alignItems:"center",
             marginBottom:"1.5rem",
+            marginTop:".5rem",
 
         },
         hero_section:{
-            marginTop:"10rem",
-            marginBottom:"10rem"
+            minHeight:"80vh",
+            marginTop:"4rem",
         },
         hero_box: {
             width: "80vw",
