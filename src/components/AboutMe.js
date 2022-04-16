@@ -110,6 +110,7 @@ const useStyles = createUseStyles({
     [`@media (max-width: ${1000}px)`]: {},
     [`@media (max-width: ${900}px)`]: {
         rootContainer:{
+            marginTop:"10rem",
         },
         rootContainerInsideBox:{
             justifyContent:"center",
