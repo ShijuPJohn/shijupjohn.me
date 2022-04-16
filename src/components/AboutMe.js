@@ -146,6 +146,8 @@ const useStyles = createUseStyles({
         aboutImageContainer: {
             padding:"2rem",
         },
+        sectionTitle:{
+        }
     }
 })
 
