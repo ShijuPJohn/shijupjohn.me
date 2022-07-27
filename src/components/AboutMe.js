@@ -168,16 +168,16 @@ function AboutMe() {
                 <div className={classes.aboutTextOuterBox}>
                     <div className={classes.aboutTextBox}>
                         <Typography variant={"body1"} className={classes.aboutText}>
-                            <p>Hi,
-                            </p>
-                            <p>I&apos;m Shiju P John, a freelance full stack developer and an aspiring data
-                                scientist.</p>
-                            <p>I&apos;m a polyglot developer who can work with many programming languages and
+                            <span>Hi,<br/>
+                            </span>
+                            <span>I&apos;m Shiju P John, a freelance full stack developer and an aspiring data
+                                scientist.</span>
+                            <span>I&apos;m a polyglot developer who can work with many programming languages and
                                 frameworks.
                                 I have experience in creating REST apis and frontend web applications. Also, I&apos;m an
                                 aspiring data scientist who&apos;s doing a full time bachelor&apos;s degree in
                                 &apos;Programming and Data science&apos;.
-                            </p>
+                            </span>
                         </Typography>
                     </div>
                 </div>
