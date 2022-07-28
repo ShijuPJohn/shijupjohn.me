@@ -18,6 +18,7 @@ class MyDocument extends Document {
                                 rel="stylesheet"/>
                  </Head>
                 <body>
+                <script>0</script>
                 <Main/>
                 <NextScript/>
                 </body>
