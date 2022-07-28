@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import React, {useState} from 'react'
-import {createUseStyles} from "react-jss";
+import {createUseStyles, ThemeProvider} from "react-jss";
 import {faFacebookF, faGithub, faHackerrank, faLinkedinIn, faTwitter} from "@fortawesome/free-brands-svg-icons";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {Typography, useMediaQuery, useTheme} from "@mui/material";
@@ -488,7 +488,7 @@ function Home() {
         setShowMenu((pVal) => !pVal)
     }
     return (
-        <React.Fragment>
+        <ThemeProvider theme={theme}>
             <Head>
                 <title>SHIJU P JOHN</title>
             </Head>
@@ -571,7 +571,7 @@ function Home() {
                     </section>
                 </main>
             </div>
-        </React.Fragment>
+        </ThemeProvider>
     )
 }
 
