@@ -443,7 +443,7 @@ const useStyles = createUseStyles({
             fontSize: "3.5rem"
         },
         greet_hi: {
-            fontSize: "3rem"
+            fontSize: "3.1rem"
         },
         hero_section:{
 
